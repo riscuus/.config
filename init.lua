@@ -98,6 +98,13 @@ vim.g.have_nerd_font = false
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+--------------------------------
+--- Risco added
+--------------------------------
+-- Avoid wrapping lines
+vim.opt.wrap = false
+vim.keymap.set('n', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -230,6 +237,14 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  {
+    'mg979/vim-visual-multi',
+    config = function()
+      -- Attempted to change the default way in which cursors get added. Expecting to really be able to do it when I know more in a future.
+      --vim.keymap.set("n", "<j>", "<Plug>(vm-add-cursors)")
+      --vim.keymap.set('n', '', vm-add-cursors, { desc = '[S]earch [H]elp' })
+    end,
+  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -626,6 +641,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        vhdl_ls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -788,7 +804,7 @@ require('lazy').setup({
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
