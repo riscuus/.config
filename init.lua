@@ -465,6 +465,14 @@ require('lazy').setup({
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
 
+  {
+    'Mofiqul/vscode.nvim',
+    config = function()
+      require 'vscode'
+      vim.cmd.colorscheme 'vscode'
+    end,
+  },
+
   -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
