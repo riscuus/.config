@@ -105,6 +105,7 @@ vim.g.have_nerd_font = false
 vim.opt.wrap = false
 vim.keymap.set('n', '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('v', 'p', 'P', { desc = 'Paste without losing yanked text' })
 
 -- Make line numbers default
 vim.opt.number = true
