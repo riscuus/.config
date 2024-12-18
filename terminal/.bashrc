@@ -67,7 +67,7 @@ function git_branch {
     branch=$(git symbolic-ref --short HEAD 2>/dev/null)
 
     # Check if there are uncommitted changes (modified, staged, or untracked files)
-    git status --porcelain | grep -E "^[ MARC]" &>/dev/null
+    git status --porcelain | grep -E "^[ MARC]" &>/dev/null || git status --porcelain | grep -E "^??" &>/dev/null
     if [ $? -eq 0 ]; then
       # If there are changes, color the branch red
       echo -e "\033[31m[$branch]\033[0m"
