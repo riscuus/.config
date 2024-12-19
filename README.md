@@ -25,4 +25,5 @@ sudo apt install g++
 sudo apt install nodejs
 sudo apt install unzip
 sudo apt install xclip
+sudo apt install ripgrep
 ```
